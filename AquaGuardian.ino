@@ -18,14 +18,14 @@
 #define WIFI_PASSWORD "Sutd6062000"
 
 // Project's API_KEY
-#define API_KEY "AIzaSyCpDaE2L7-mikCmMKnLxKGEEsbbUkvLnSc"
+#define API_KEY "AIzaSyDYe5fJgfC9J1NKhkdV-3gMlfM4qIlnDkM"
 
 // Insert Authorized Email and Corresponding Password
-#define USER_EMAIL "mynameisjoshua66@gmail.com"
-#define USER_PASSWORD "testtest"
+#define USER_EMAIL "xpxchxcx@gmail.com"
+#define USER_PASSWORD "testpass"
 
 // Insert RTDB URLefine the RTDB URL
-#define DATABASE_URL "https://sustaining-life-underwater-default-rtdb.asia-southeast1.firebasedatabase.app/"
+#define DATABASE_URL "https://gsc-team-1-water-default-rtdb.asia-southeast1.firebasedatabase.app/"
 
 
 #define SensorPin    A0            //pH meter Analog output to Arduino Analog Input 0
@@ -60,14 +60,44 @@ int timestamp;
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
+// Initialize WiFi
+void initWiFi() {
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  Serial.print("Connecting to WiFi ..");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print('.');
+    delay(1000);
+  }
+  Serial.println(WiFi.localIP());
+  Serial.println();
+}
+
+// Function that gets current epoch time
+unsigned long getTime() {
+  timeClient.update();
+  unsigned long now = timeClient.getEpochTime();
+  return now;
+}
+
+
 void setup(void){
   pinMode(LED,OUTPUT);
+ // Initialize Wifi
   initWiFi();
   timeClient.begin();
+ 
+ // Assign API Key
   config.api_key = API_KEY;
+ 
+ // Assign the user sign in credentials
   auth.user.email = USER_EMAIL;
   auth.user.password = USER_PASSWORD;
+ 
+  // Assign the RTDB URL
   config.database_url = DATABASE_URL;
+  Firebase.reconnectWiFi(true);
+  fbdo.setResponseSize(4096);
+ 
   // Assign the callback function for the long running token generation task
   config.token_status_callback = tokenStatusCallback; //see addons/TokenHelper.h
 
@@ -145,26 +175,6 @@ void loop(void)
   }
  
 }
-
-// Initialize WiFi
-void initWiFi() {
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  Serial.print("Connecting to WiFi ..");
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print('.');
-    delay(1000);
-  }
-  Serial.println(WiFi.localIP());
-  Serial.println();
-}
-
-// Function that gets current epoch time
-unsigned long getTime() {
-  timeClient.update();
-  unsigned long now = timeClient.getEpochTime();
-  return now;
-}
-
 
 double avergearray(int* arr, int number){
   int i;
