@@ -37,7 +37,7 @@ Aqua Bot prototype comprises of:
 - pH Sensor
 - Luthium Batteries
 - Solar Power Manager
-- Solar Panel (not shown in diagram)
+- Solar Panel
 
 <img src="https://user-images.githubusercontent.com/87000020/227790385-6970c3cd-ecf7-4611-afd6-8b90d7ff2b0b.svg">
 
