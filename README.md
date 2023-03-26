@@ -52,3 +52,7 @@ The average user can report suspected water pollution sites via a Google Form on
 
 ## For Corporate Use
 Companies can sign in to their registered emails and track water pollution with real-time updates from our Aqua Bots.
+
+<img src="https://user-images.githubusercontent.com/87000020/227801156-fea341b5-038e-496a-ad7c-6a5f99bbf16e.gif">
+
+
