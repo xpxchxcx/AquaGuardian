@@ -4,6 +4,7 @@
 
 <h1 align ="center">Aqua Guardians: Redefining the State of Water Pollution</h1>
 <h4 align="center">
+  <a href="https://gsc-team-1-water.web.app/index.html">Website</a>
   <a href="">Video</a>
   <span> · </span>
   <a href="https://github.com/xpxchxcx/AquaGuardians/issues">Report a bug</a>
