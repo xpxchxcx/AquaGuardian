@@ -6,7 +6,7 @@
 <h4 align="center">
   <a href="https://gsc-team-1-water.web.app/index.html">Website</a>
   <span> · </span>
-  <a href="">Video</a>
+  <a href="https://youtu.be/bK9xihYM_kE">Video</a>
   <span> · </span>
   <a href="https://github.com/xpxchxcx/AquaGuardians/issues">Report a bug</a>
 </h4>
